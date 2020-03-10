@@ -1,0 +1,10 @@
+{
+    "norminette.fileregex": "^*\\.[ch]$",
+    "editor.rulers": [80],
+    "editor.overviewRulerBorder": true,
+    "editor.tabSize": 4,
+    "editor.insertSpaces": false,
+    "editor.renderWhitespace": "all",
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+}

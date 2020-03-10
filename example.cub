@@ -1,0 +1,31 @@
+R 720 720
+NO ./textures/wallbrick.xpm
+SO ./textures/wallbrick.xpm
+WE ./textures/wallbrick.xpm
+EA ./textures/wallbrick.xpm
+S ./textures/rick.xpm
+FT ./textures/floortexture.xpm
+F 220,100, 0
+C
+    1
+   121
+  12221
+ 100E01
+  1001
+ 100001
+100001
+100001
+100001
+100001
+100001
+100001
+100001
+100001
+100001
+100001
+100001
+100001
+100001
+100001
+100001
+111111
