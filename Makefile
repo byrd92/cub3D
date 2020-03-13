@@ -21,7 +21,7 @@ RM		= rm -rf
 CFLAGS	= -Wall -Werror -Wextra -I includes/
 LIBS	= -L /usr/local/lib/ -lmlx -framework OpenGL -framework AppKit
 LIBSMAC = -I /usr/local/include -L minilibx/  libmlx.a  -framework OpenGL \
-			-framework AppKit ./libft/libft.a
+			-framework AppKit ./includes/libft/libft.a
 
 NAME	= cub3D
 

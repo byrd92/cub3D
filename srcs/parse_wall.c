@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_wall.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: egarcia- <egarcia-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: egarcia- <emilioggo@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 18:52:59 by egarcia-          #+#    #+#             */
-/*   Updated: 2020/03/09 16:37:31 by egarcia-         ###   ########.fr       */
+/*   Updated: 2020/03/13 17:14:12 by egarcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,15 +38,17 @@ void		get_textures_s_f(t_game *g)
 {
 	if (g->f_path != NULL && g->f.texturefloor == 1)
 	{
-		g->texptr = mlx_xpm_file_to_image(g->mlx_ptr, g->f_path,
-		&g->tex[4].textwidth, &g->tex[4].textheight);
+		if (!(g->texptr = mlx_xpm_file_to_image(g->mlx_ptr, g->f_path,
+		&g->tex[4].textwidth, &g->tex[4].textheight)))
+			ft_error("Error\n Wrong floor path.", g);
 		g->tex[4].texture = (int *)mlx_get_data_addr(g->texptr,
 		&g->tex[4].byte_per_pixel, &g->tex[4].size_line, &g->tex[4].endian);
 	}
 	if (g->spray_path != NULL)
 	{
-		g->texptr = mlx_xpm_file_to_image(g->mlx_ptr, g->spray_path,
-		&g->tex[5].textwidth, &g->tex[5].textheight);
+		if(!(g->texptr = mlx_xpm_file_to_image(g->mlx_ptr, g->spray_path,
+		&g->tex[5].textwidth, &g->tex[5].textheight)))
+			ft_error("Error\n Wrong sprite path.", g);
 		g->tex[5].texture = (int *)mlx_get_data_addr(g->texptr,
 		&g->tex[5].byte_per_pixel, &g->tex[5].size_line, &g->tex[5].endian);
 	}
@@ -71,7 +73,7 @@ void		get_textures(t_game *g)
 		&g->tex[2].byte_per_pixel, &g->tex[2].size_line, &g->tex[2].endian);
 	if (!(g->texptr = mlx_xpm_file_to_image(g->mlx_ptr,
 	g->e_path, &g->tex[3].textwidth, &g->tex[3].textheight)))
-		ft_error("ERROR, W_PATH WRONG", g);
+		ft_error("ERROR, E_PATH WRONG", g);
 	g->tex[3].texture = (int *)mlx_get_data_addr(g->texptr,
 		&g->tex[3].byte_per_pixel, &g->tex[3].size_line, &g->tex[3].endian);
 	get_textures_s_f(g);

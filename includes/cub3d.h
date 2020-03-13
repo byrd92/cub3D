@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: egarcia- <egarcia-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: egarcia- <emilioggo@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/14 13:03:55 by egarcia-          #+#    #+#             */
-/*   Updated: 2020/03/10 17:44:52 by egarcia-         ###   ########.fr       */
+/*   Updated: 2020/03/13 16:58:36 by egarcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,7 +140,7 @@ typedef struct		s_game
 	t_ray			ray;
 	t_texture		tex[6];
 	t_floor			f;
-	t_spray			spray[30];
+	t_spray			spray[200];
 	int				mapwidth;
 	int				mapheight;
 	char			*spray_path;
@@ -159,6 +159,7 @@ typedef struct		s_game
 	int				maprow;
 	int				mapcol;
 	char			*map;
+	int				on_music;
 }					t_game;
 
 /*

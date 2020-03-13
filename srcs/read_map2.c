@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_map2.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: egarcia- <egarcia-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: egarcia- <emilioggo@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 18:38:33 by egarcia-          #+#    #+#             */
-/*   Updated: 2020/03/10 18:41:18 by egarcia-         ###   ########.fr       */
+/*   Updated: 2020/03/13 17:25:09 by egarcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,8 @@ void		ft_read_map(char *file, t_game *g)
 	else
 		ft_error("Error\n Not extension asigned", g);
 	fd = open(file, O_RDONLY);
+	if (fd < 0)
+		ft_error("Error\n File doesnt exist.", g);
 	ft_check_line(fd, g);
 	ft_map(g->map, g, g->maprow);
 	ft_check_error(g);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: egarcia- <egarcia-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: egarcia- <emilioggo@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 17:47:35 by egarcia-          #+#    #+#             */
-/*   Updated: 2020/03/10 18:17:32 by egarcia-         ###   ########.fr       */
+/*   Updated: 2020/03/13 17:01:34 by egarcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,8 @@ void		ft_error(char *s, t_game *g)
 	write(2, "\033[1;31m", 8);
 	write(2, s, ft_strlen(s));
 	g->buff = 0;
-	system("killall afplay");
+	if (g->on_music == 1)
+		system("killall afplay");
 	exit(-1);
 }
 
@@ -76,6 +77,8 @@ int			close_game(t_game *g)
 	free(g->worldmap);
 	free(g->n_path);
 	free(g->so_path);
-	system("killall afplay");
+	//printf("%d", g->n_spray);
+	if (g->on_music == 1)
+		system("killall afplay");
 	exit(0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: egarcia- <egarcia-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: egarcia- <emilioggo@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/14 13:03:33 by egarcia-          #+#    #+#             */
-/*   Updated: 2020/03/10 18:20:01 by egarcia-         ###   ########.fr       */
+/*   Updated: 2020/03/13 17:02:40 by egarcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ void	init_data(t_game *g)
 
 void	ft_init_game(char *argv, t_game *g)
 {
-	system("afplay musica_mario.mp3&");
 	ft_read_map(argv, g);
 	g->mlx_ptr = mlx_init();
 	g->win_ptr = mlx_new_window(g->mlx_ptr, g->mapwidth, g->mapheight, "cub3d");
@@ -38,6 +37,8 @@ void	ft_init_game(char *argv, t_game *g)
 	get_textures(g);
 	g->buff = (int *)mlx_get_data_addr(g->ren.dataimg, &g->ren.bytes_per_pixel,
 				&g->ren.size_line, &g->ren.endian);
+	system("afplay music/music1.mp3 &");
+	g->on_music = 1;
 	mlx_hook(g->win_ptr, 2, 1, key_pressed, &g->key);
 	mlx_hook(g->win_ptr, 3, 1, key_released, &g->key);
 	mlx_hook(g->win_ptr, 17, 1, close_game, (void *)g);
